@@ -12,6 +12,7 @@ class TweetsController < ApplicationController
 private
 
   def tweet_params
+    { content: content_from_params }
     params.require(:tweet).permit(:body)
   end
 
@@ -21,4 +22,5 @@ private
     else
       { alert: "Could not shout 😭" }
   end
+end
 end

@@ -1,6 +1,6 @@
 <div>
   <%= link_to tweet.username, tweet.user %>
-  <%= tweet.body  %>
+  <%= tweet.content.body  %>
   <%= link_to tweet do %>
     <%= time_ago_in_words(tweet.created_at) %> ago
   <% end %>

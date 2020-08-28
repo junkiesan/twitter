@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   constraints Clearance::Constraints::SignedIn.new do
-    root to: "dashboards#show"
+    root to: "dashboards#show", as: nil
   end
 
   root to: "homes#show"
