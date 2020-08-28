@@ -1,1 +1,12 @@
 <h1>Dashboard</h1>
+
+<%= form_for @tweet do |form| %>
+  <%= form.text_field :body, placeholder: "tweet here!", required: true  %>
+  <%= form.submit "Tweet  !" %>
+<% end %>
+
+
+<% @tweets.each do |shout| %>
+  <div>
+    <%= tweet.body  %>
+  </div>
