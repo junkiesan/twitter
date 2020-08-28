@@ -1,5 +1,9 @@
 class TweetsController < ApplicationController
 
+  def show
+    @tweet = Tweet.find(params[:id])
+  end
+
   def create
     tweet = current_user.tweets.create(tweet_params)
     redirect_to root_path, redirect_options_for(tweet)

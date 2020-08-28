@@ -5,6 +5,11 @@ class UsersController < Clearance::UsersController
     render template: "users/new"
   end
 
+  def show
+    @user = User.find(params[:id])
+    @tweets = @user.tweets
+  end
+
 private
   def user_params
     params.require(:user).permit(:username, :email, :password)
