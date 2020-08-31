@@ -13,7 +13,14 @@ private
 
   def tweet_params
     { content: content_from_params }
-    params.require(:tweet).permit(:body)
+  end
+
+  def content_from_params
+    TextTweet.new(content_params)
+  end
+
+  def content_params
+    params.require(:tweet).rquire(:content).permit(:body)
   end
 
   def redirect_options_for
