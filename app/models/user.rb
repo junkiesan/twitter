@@ -14,7 +14,12 @@ class User < ApplicationRecord
   def unlike(tweet)
     liked_tweets.destroy(tweet)
   end
+
   def liked?(tweet)
     liked_tweet_ids.include?(tweet.id)
+  end
+
+  def to_param
+    username
   end
 end
