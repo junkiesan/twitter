@@ -1,7 +1,1 @@
-<div>
-  <%= link_to tweet.username, tweet.user %>
-  <%= tweet.content.body  %>
-  <%= link_to tweet do %>
-    <%= time_ago_in_words(tweet.created_at) %> ago
-  <% end %>
-</div>
+<%= image_tag(photo_tweet.image(:thumb)) %>
