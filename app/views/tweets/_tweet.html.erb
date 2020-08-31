@@ -5,4 +5,9 @@
   <%= link_to tweet do %>
     <%= time_ago_in_words(tweet.created_at) %> ago
   <% end %>
+
+  <% if current_user.has_liked?(tweet) %>
+  <% else %>
+  <%= link_to "Like", like_tweet_path(tweet), method: :post %>
+  <% end %>
 </div>
