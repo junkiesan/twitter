@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   end
 
   root to: "homes#show"
-  resources :tweets, only: [:create, :show] do
+
+  post "text_tweets" => "tweets#create", defaults: { content_type: TextTweet}
+  post "photo_tweets" => "tweets#create", defaults: { content_type: PhotoTweet}
+
+  resources :tweets, only: [:show] do
     member do
       post "like" => "likes#create"
       delete "unlike" => "likes#destroy"

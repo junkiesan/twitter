@@ -16,18 +16,16 @@ private
   end
 
   def content_from_params
+    params[:content_type].new(content_params)
+
     case params[:tweet][:content_type]
     when "TextTweet" then TextTweet.new(text_tweet_content_params)
     when "PhotoTweet" then PhotoTweet.new(photo_tweet_content_params)
     end
   end
 
-  def text_tweet_content_params
-    params.require(:tweet).rquire(:content).permit(:body)
-  end
-
-  def photo_tweet_content_params
-    params.require(:tweet).rquire(:content).permit(:image)
+  def content_params
+    params.require(:tweet).rquire(:content).permit!
   end
 
   def redirect_options_for
