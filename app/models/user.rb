@@ -20,9 +20,6 @@ class User < ApplicationRecord
            dependent: :destroy
   has_many :followers, through: :follower_relationships
 
-  def timeline_tweets
-    Tweet.where(user_id: followed_user_ids + [id])
-  end
   def follow
     followed_users << user
   end
