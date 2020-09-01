@@ -1,19 +1,11 @@
 <h1>Dashboard</h1>
 
-<%= form_for @tweet do |form| %>
-<%= form.hidden_field :content_type, value: "TextTweet"  %>
-  <%= form.fields_for :content do |content_form|  %>
-    <%= content_form.text_field :body, placeholder: "tweet here!", required: true  %>
-  <% end %>
-  <%= form.submit "Tweet  !" %>
+<%= tweet_form_for(TextTweet) do |form|  %>
+  <%= form.text_field :body, placeholder: "tweet here!", required: true  %>
 <% end %>
 
-<%= form_for @tweet do |form| %>
-<%= form.hidden_field :content_type, value: "PhotoTweet"  %>
-  <%= form.fields_for :content do |content_form|  %>
-    <%= content_form.file_field :body, required: true  %>
-  <% end %>
-  <%= form.submit "Tweet  !" %>
+<%= tweet_form_for(PhotoTweet) do |form|  %>
+  <%= form.file_field :image, required: true  %>
 <% end %>
 
 <%= render @tweets %>

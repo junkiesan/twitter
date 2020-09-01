@@ -34,7 +34,7 @@ private
     if tweet.persisted?
       { notice: "Tweeted successfully 🤓"}
     else
-      { alert: "Could not shout 😭" }
+      { alert: "Could not tweet 😭" }
   end
 end
 end

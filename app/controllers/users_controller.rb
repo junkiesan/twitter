@@ -9,7 +9,8 @@ class UsersController < Clearance::UsersController
     @tweets = @user.tweets
   end
 
-private
+  private
+
   def user_params
     params.require(:user).permit(:username, :email, :password)
   end

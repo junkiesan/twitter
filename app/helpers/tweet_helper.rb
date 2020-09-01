@@ -1,5 +1,13 @@
 module TweetHelper
 
+  def tweet_form_for(content_type)
+    form_for Tweet.new do |form|
+      form.hidden_field(:content_type, value: content_type) +
+      form.fields_for(:content) { |content_form| yield(content_form) } +
+      form.submit("Tweet!")
+    end
+  end
+
   def like_button(tweet)
     if current_user.liked?(tweet)
       link_to "Unlike", unlike_tweet_path(tweet), method: :delete
