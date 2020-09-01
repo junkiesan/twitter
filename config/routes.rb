@@ -1,3 +1,5 @@
+require "clearance/constraints/signed_in"
+
 Rails.application.routes.draw do
   constraints Clearance::Constraints::SignedIn.new do
     root to: "dashboards#show", as: nil
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
   resource :search, only: [:show]
 
   post "text_tweets" => "tweets#create", defaults: { content_type: TextTweet}
-  post "photo_tweets" => "tweets#create", defaults: { content_type: PhotoTweet}
+  post "photo_tweets" => "tweets#create", defaults: { content_type: Phototweet}
  # post "retweet" => "retweets#create"
 
   resources :tweets, only: [:show] do
