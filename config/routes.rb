@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   post "text_tweets" => "tweets#create", defaults: { content_type: TextTweet}
   post "photo_tweets" => "tweets#create", defaults: { content_type: PhotoTweet}
+ # post "retweet" => "retweets#create"
 
   resources :tweets, only: [:show] do
     member do
