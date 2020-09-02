@@ -1,6 +1,5 @@
 class SessionsController < Clearance::SessionsController
-
-private
+  private
 
   def authenticate(_)
     super(session_params)
@@ -11,10 +10,10 @@ private
   end
 
   def session_params_with_email
-    params.
-    require(:session).
-    permit(:password).
-    merge(email: user.email)
+    params
+      .require(:session)
+      .permit(:password)
+      .merge(email: user.email)
   end
 
   def user
