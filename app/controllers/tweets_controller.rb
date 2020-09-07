@@ -25,14 +25,14 @@ private
   end
 
   def content_params
-    params.require(:tweet).rquire(:content).permit!
+    params.require(:tweet).require(:content).permit!
   end
 
-  def redirect_options_for
+  def redirect_options_for(tweet)
     if tweet.persisted?
       { notice: "Tweeted successfully 🤓"}
     else
       { alert: "Could not tweet 😭" }
+    end
   end
-end
 end
