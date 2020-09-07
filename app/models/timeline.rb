@@ -5,9 +5,9 @@ class Timeline
   end
 
   def tweets
-    Tweet.
-      where(user_id: timeline_ids).
-      order(created_at: :desc)
+    scope
+      .where(user_id: users)
+      .order(created_at: :desc)
   end
 
   def to_partial_path

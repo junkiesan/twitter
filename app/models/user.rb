@@ -12,7 +12,7 @@ class User < ApplicationRecord
            foreign_key: :follower_id,
            class_name: 'FollowingRelationship',
            dependent: :destroy
-  has_many :followed_users, through: :following_relationships
+  has_many :followed_users, through: :followed_user_relationships
 
   has_many :follower_relationships,
            foreign_key: :followed_user_id,
