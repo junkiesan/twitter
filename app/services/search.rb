@@ -5,7 +5,7 @@ class Search
   end
 
   def run
-    TweetSearchQuery.new(term: "#{term}").to_relation
+    TweetSearchQuery.new(term: term).to_relation
   end
   alias results run
 end
