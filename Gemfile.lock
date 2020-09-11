@@ -220,7 +220,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
-  clearance
+  clearance (~> 2.3)
   jbuilder (~> 2.7)
   listen (~> 3.2)
   paperclip

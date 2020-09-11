@@ -5,11 +5,12 @@ class TweetsController < ApplicationController
   end
 
   def create
-    tweet = current_user.tweets.create(tweet_params)
+    tweet = current_user.tweets.new(tweet_params)
     redirect_to root_path, redirect_options_for(tweet)
+    tweet.save!
   end
 
-private
+  private
 
   def tweet_params
     { content: content_from_params }
@@ -18,10 +19,10 @@ private
   def content_from_params
     params[:content_type].new(content_params)
 
-    # case params[:tweet][:content_type]
-    # when "TextTweet" then TextTweet.new(text_tweet_content_params)
-    # when "PhotoTweet" then PhotoTweet.new(photo_tweet_content_params)
-    # end
+    case params[:tweet][:content_type]
+    when "TextTweet" then TextTweet.new(text_tweet_content_params)
+    when "PhotoTweet" then PhotoTweet.new(photo_tweet_content_params)
+    end
   end
 
   def content_params
